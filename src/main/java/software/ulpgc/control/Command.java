@@ -1,4 +1,7 @@
-package software.ulpgc.app;
+package software.ulpgc.control;
 
-public class Command {
+import java.io.IOException;
+
+public interface Command {
+    void execute() throws IOException;
 }

@@ -1,4 +1,8 @@
-package software.ulpgc;
+package software.ulpgc.model;
 
-public record Money() {
+public record Money(long amount, Currency currency) {
+    @Override
+    public String toString() {
+        return  amount + " " + currency;
+    }
 }

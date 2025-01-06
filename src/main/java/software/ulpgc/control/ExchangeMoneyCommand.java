@@ -1,7 +1,6 @@
-package software.ulpgc.io;
+package software.ulpgc.control;
 
-import software.ulpgc.app.SwingImageDisplay;
-import software.ulpgc.control.Command;
+import software.ulpgc.io.ExchangeRateLoader;
 import software.ulpgc.model.Currency;
 import software.ulpgc.model.Money;
 import software.ulpgc.view.CurrencyDialog;
@@ -33,14 +32,14 @@ public class ExchangeMoneyCommand implements Command {
         Money money = moneyDialog.get();
         Currency currency = currencyDialog.get();
 
-        //double exchangeRate = exchangeRateLoader.load(money.currency(),currency);
+        double exchangeRate = exchangeRateLoader.load(money.currency(),currency);
 
-        //Money result = new Money((long) (money.amount()*exchangeRate),currency);
-        //System.out.println(exchangeRate);
+        Money result = new Money((long) (money.amount()*exchangeRate),currency);
 
-        //double percentage = exchangeRateLoader.getPercentage();
+        double percentage = exchangeRateLoader.getPercentage();
 
-       // moneyDisplay.show(result, percentage);
-        imageDisplay.show(100);
+
+        moneyDisplay.show(result, percentage);
+        imageDisplay.show(percentage);
     }
 }
